@@ -1,0 +1,72 @@
+var firebaseConfig = {
+apiKey: "AIza1yJyQkcCgnQgLnhQaO4",
+authDomain: "codetration.firebaseapp.com",
+databaseURL: "https://coder-s-cafe-registration-default-rtdb.firebaseio.com",
+projectId: "coder-s-cafe-registration",
+storageBucket: "coder-s-cafe-registration.appspot.com",
+messagingSenderId: "737125702925",
+appId: "1:737125702925:web:6c8b925fd90201d2e26444",
+measurementId: "G-LWFS0BRQNQ"
+  };
+    // Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
+
+
+
+
+var disturbanceConfig = {
+apiKey: "AIzaSyBVy-WM-B9rD4Xy1yJyQkcCgnQgLnhQaO4",
+authDomain: "coder-s-cafe-registration.firebaseapp.com",
+databaseURL: "https://coder-s-cafe-registration-default-rtdb.firebaseio.com",
+projectId: "coder-s-cafe-registration",
+storageBucket: "coder-s-cafe-registration.appspot.com",
+messagingSenderId: "737125702925",
+appId: "1:737125702925:web:6c8b925fd90201d2e26444",
+measurementId: "G-LWFS0BRQNQ"
+  };
+    // Initialize Firebase
+const disturbance = firebase.initializeApp(disturbanceConfig,"secondary");
+
+const appCheck = disturbance.appCheck();
+appCheck.activate(
+  	'6LeMwvgeAAAAAJ4tKouc5nDbVBBNsR8O6839eIiH',
+  true);
+
+
+var i = 0
+disturbance.database().ref("/").once('value').then(function(a){
+	a.forEach(function(snapshot){
+		console.log(snapshot.key)
+		if (snapshot.key == "PythonTurtle"){
+			i+=1
+		}
+
+
+	})
+
+	if (i >= 4){
+	document.getElementById("event-div1").style = "display:none"
+}
+
+})
+
+
+
+function formValueCheck(classes){
+	console.log(1)
+	specialNeed = document.getElementById("input2").selectedIndex
+	 grade = document.getElementById("input3").value
+	 name = document.getElementById("input4").value
+	 contact = document.getElementById("input5").value
+
+	disturbance.database().ref(classes+" "+new Date().getTime()+'/').set({
+	      name: name,
+	      grade: grade,
+	      specialNeed: specialNeed,
+				contact:contact
+	    })
+
+
+}
