@@ -96,9 +96,36 @@
 #{
 
 }
-
-
-
+#toast-error {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px;
+  position: fixed;
+  z-index: 10000;
+  left: 50%;
+  top: 20%;
+  font-size: 17px;
+}
+#toast-success {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px;
+  position: fixed;
+  z-index: 10000;
+  left: 50%;
+  top: 20%;
+  font-size: 17px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
 	:root {
